@@ -27,6 +27,7 @@ export interface DocumentState {
     width: number;
     height: number;
   } | null;
+  totalPages: number | null;
 }
 
 export type UIMode = 'normal' | 'findNearest';

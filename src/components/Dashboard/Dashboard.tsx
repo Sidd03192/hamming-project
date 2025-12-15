@@ -87,16 +87,32 @@ const Dashboard: React.FC<DashboardProps> = ({ stats }) => {
           return;
         }
 
-        if (result.boxes) {
-          dispatch({ type: 'LOAD_BOXES', payload: result.boxes });
-          alert(`Successfully imported ${result.boxes.length} redaction box${result.boxes.length !== 1 ? 'es' : ''}`);
+        // Filter boxes based on available pages
+        const totalPages = state.document.totalPages;
+        if (totalPages !== null) {
+          const originalCount = result.boxes ? result.boxes.length : 0;
+          const boxesToImport = result.boxes ? result.boxes.filter(box => !box.page || box.page <= totalPages) : [];
+
+          if (boxesToImport.length < originalCount) {
+             console.warn(`Filtered out ${originalCount - boxesToImport.length} boxes outside usage page range.`);
+             alert(`Imported ${boxesToImport.length} boxes. ${originalCount - boxesToImport.length} boxes were skipped because they belonged to pages not present in the current document.`);
+          } else {
+             alert(`Successfully imported ${boxesToImport.length} redaction box${boxesToImport.length !== 1 ? 'es' : ''}`);
+          }
+
+          if (boxesToImport.length > 0) {
+            dispatch({ type: 'LOAD_BOXES', payload: boxesToImport });
+          }
+        } else {
+            alert('Please upload a document before importing redaction boxes to ensure they match the page count.');
+            return;
         }
       } catch (error) {
         console.error('Import error:', error);
         alert('Failed to import redaction boxes. Please ensure the file is valid.');
       }
     },
-    [dispatch]
+    [dispatch, state.document.totalPages] // Added state.totalPages to dependencies
   );
 
   // Handle reset

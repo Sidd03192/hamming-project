@@ -98,6 +98,7 @@ export function EditorPage() {
               fileUrl,
               fileType,
               dimensions: null,
+              totalPages: null,
             },
           });
         }
@@ -129,6 +130,7 @@ export function EditorPage() {
           fileUrl,
           fileType,
           dimensions: null,
+          totalPages: null,
         },
       });
       // Reset view state
@@ -160,7 +162,8 @@ export function EditorPage() {
             file: null,
             fileUrl: '',
             fileType: 'image', // default
-            dimensions: null
+            dimensions: null,
+            totalPages: null
           }
         });
         
@@ -251,7 +254,7 @@ export function EditorPage() {
           <Dashboard stats={stats} />
         </aside>
 
-        <main className="editor-document-area">
+        <main className={`editor-document-area ${!state.document.fileUrl ? 'is-empty' : ''}`}>
           <div className="document-container">
             <div className="document-wrapper">
               <DocumentViewer 

@@ -7,7 +7,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLi
 
 interface PDFViewerProps {
   fileUrl: string;
-  onDimensionsLoaded: (width: number, height: number) => void;
+  onDimensionsLoaded: (width: number, height: number, pages?: number) => void;
   currentPage?: number;
   onPageChange?: (page: number) => void;
   zoomLevel?: number;
@@ -170,7 +170,7 @@ export const PDFViewer = ({
         const logicalWidth = viewport.width / dpr;
         const logicalHeight = viewport.height / dpr;
         if (logicalWidth > 0 && logicalHeight > 0) {
-          onDimensionsLoadedRef.current(logicalWidth, logicalHeight);
+          onDimensionsLoadedRef.current(logicalWidth, logicalHeight, pdfDoc.numPages);
         }
 
         setIsLoading(false);
@@ -199,10 +199,10 @@ export const PDFViewer = ({
     const handleResize = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        if (canvasRef.current) {
+        if (canvasRef.current && pdfDocRef.current) {
           const { clientWidth, clientHeight } = canvasRef.current;
           if (clientWidth > 0 && clientHeight > 0) {
-            onDimensionsLoadedRef.current(clientWidth, clientHeight);
+            onDimensionsLoadedRef.current(clientWidth, clientHeight, pdfDocRef.current.numPages);
           }
         }
       }, 100);

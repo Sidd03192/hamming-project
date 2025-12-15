@@ -9,6 +9,7 @@ export const initialState: AppState = {
     fileUrl: null,
     fileType: null,
     dimensions: null,
+    totalPages: null,
   },
   boxes: [],
   uiMode: 'normal',

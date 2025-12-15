@@ -30,6 +30,7 @@ export const DocumentViewer = ({
       payload: {
         ...document,
         dimensions: { width, height },
+        totalPages: pages || 1,
       },
     });
 

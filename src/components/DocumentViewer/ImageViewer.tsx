@@ -3,7 +3,7 @@ import './ImageViewer.css';
 
 interface ImageViewerProps {
   fileUrl: string;
-  onDimensionsLoaded: (width: number, height: number) => void;
+  onDimensionsLoaded: (width: number, height: number, pages?: number) => void;
   zoomLevel?: number;
 }
 
@@ -24,7 +24,7 @@ export const ImageViewer = ({
 
       // Only update if we have valid dimensions
       if (clientWidth > 0 && clientHeight > 0) {
-        onDimensionsLoaded(clientWidth, clientHeight);
+        onDimensionsLoaded(clientWidth, clientHeight, 1);
       }
     }
   }, [onDimensionsLoaded]);

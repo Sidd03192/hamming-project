@@ -99,7 +99,11 @@
      Using center caused the top cutoff when zoomed. 
      Let's try removing align-items or setting it to flex-start + margin: auto logic via flex 
   */
-  align-items: flex-start; 
+  align-items: flex-start;
+}
+
+.editor-document-area.is-empty {
+  align-items: center;
 }
 
 /* Document container with canvas overlay */
