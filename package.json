@@ -15,6 +15,7 @@
     "react-dom": "^19.2.0",
     "react-virtualized-auto-sizer": "^1.0.26",
     "react-window": "^2.2.3",
+    "tesseract.js": "^7.0.0",
     "uuid": "^13.0.0"
   },
   "devDependencies": {

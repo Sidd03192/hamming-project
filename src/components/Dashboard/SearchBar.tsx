@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import Input from '../UI/Input';
 import './SearchBar.css';
 
 export interface SearchBarProps {
@@ -71,7 +70,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
           </svg>
         </div>
 
-        <Input
+        <input
           value={internalValue}
           onChange={handleInputChange}
           placeholder="Search documents or redactions..."

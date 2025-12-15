@@ -211,12 +211,6 @@ const Dashboard: React.FC<DashboardProps> = ({ stats }) => {
               {stats.percentage.toFixed(2)}%
             </span>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span>Pointer:</span>
-            <span style={{ color: 'var(--figma-text-primary)', fontFamily: 'monospace' }}>
-              {stats.pointer ? `X: ${Math.round(stats.pointer.x)}, Y: ${Math.round(stats.pointer.y)}` : '-'}
-            </span>
-          </div>
         </div>
       )}
       <div className="dashboard__controls">
