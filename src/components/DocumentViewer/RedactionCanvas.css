@@ -1,0 +1,23 @@
+.redaction-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: crosshair;
+  z-index: 100;
+  /* Transparent background to overlay document */
+  background-color: transparent;
+  pointer-events: auto;
+}
+
+/* Different cursor for find nearest mode */
+.redaction-canvas.find-nearest-mode {
+  cursor: pointer;
+}
+
+/* Prevent text selection while drawing */
+.redaction-canvas {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

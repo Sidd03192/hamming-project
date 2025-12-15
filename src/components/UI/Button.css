@@ -1,0 +1,115 @@
+/* Figma-like Button Styling */
+.btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: auto;
+  outline: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 153, 255, 0.3);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary Button - Figma blue accent */
+.btn--primary {
+  background-color: var(--figma-accent, #0d99ff);
+  color: white;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--figma-accent-hover, #0077cc);
+}
+
+.btn--primary:active:not(:disabled) {
+  background-color: #005fa3;
+}
+
+/* Secondary Button - Figma dark style */
+.btn--secondary {
+  background-color: var(--figma-bg-tertiary, #383838);
+  color: var(--figma-text-primary, #ffffff);
+  border: 1px solid var(--figma-border, #444444);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--figma-bg-hover, #404040);
+  border-color: var(--figma-border, #555555);
+}
+
+.btn--secondary:active:not(:disabled) {
+  background-color: #4a4a4a;
+}
+
+/* Danger Button - Figma red */
+.btn--danger {
+  background-color: var(--figma-danger, #f24822);
+  color: white;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: #d93d1a;
+}
+
+.btn--danger:active:not(:disabled) {
+  background-color: #c03415;
+}
+
+/* Success Button - Figma green */
+.btn--success {
+  background-color: var(--figma-success, #14ae5c);
+  color: white;
+}
+
+.btn--success:hover:not(:disabled) {
+  background-color: #119b4f;
+}
+
+.btn--success:active:not(:disabled) {
+  background-color: #0e8843;
+}
+
+/* Ghost variant for subtle actions */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--figma-text-secondary, #b3b3b3);
+  border: none;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background-color: var(--figma-bg-tertiary, #383838);
+  color: var(--figma-text-primary, #ffffff);
+}
+
+.btn--ghost:active:not(:disabled) {
+  background-color: var(--figma-bg-hover, #404040);
+}
+
+/* Size variants */
+.btn--sm {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.btn--lg {
+  padding: 10px 20px;
+  font-size: 14px;
+}

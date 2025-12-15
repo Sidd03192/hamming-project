@@ -1,0 +1,192 @@
+/* Figma-like BoxListItem Styling - Compact Design */
+.box-list-item {
+  background-color: var(--figma-bg-secondary);
+  border: 1px solid var(--figma-border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.box-list-item:hover {
+  background-color: var(--figma-bg-tertiary);
+  border-color: var(--figma-bg-hover);
+}
+
+.box-list-item--selected {
+  border-color: var(--figma-accent);
+  background-color: rgba(13, 153, 255, 0.1);
+}
+
+.box-list-item--selected:hover {
+  border-color: var(--figma-accent);
+  background-color: rgba(13, 153, 255, 0.15);
+}
+
+/* Main Row - Label + Badge + Menu */
+.box-list-item__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.box-list-item__info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.box-list-item__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--figma-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+/* Compact Sensitivity Badge */
+.sensitivity-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sensitivity-badge--sm {
+  padding: 1px 5px;
+  font-size: 9px;
+}
+
+.sensitivity-badge--low {
+  background-color: rgba(20, 174, 92, 0.15);
+  color: var(--figma-success);
+}
+
+.sensitivity-badge--med {
+  background-color: rgba(255, 184, 0, 0.15);
+  color: var(--figma-warning);
+}
+
+.sensitivity-badge--high {
+  background-color: rgba(242, 72, 34, 0.15);
+  color: var(--figma-danger);
+}
+
+/* 3-Dot Menu */
+.box-list-item__menu {
+  position: relative;
+}
+
+.box-list-item__menu-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--figma-text-tertiary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.box-list-item__menu-btn:hover {
+  background-color: var(--figma-bg-hover);
+  color: var(--figma-text-primary);
+}
+
+/* Dropdown Menu */
+.box-list-item__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 140px;
+  background-color: var(--figma-bg-secondary);
+  border: 1px solid var(--figma-border);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  padding: 4px;
+  margin-top: 2px;
+}
+
+.dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  background: none;
+  color: var(--figma-text-primary);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.1s ease;
+  text-align: left;
+}
+
+.dropdown__item:hover {
+  background-color: var(--figma-bg-tertiary);
+}
+
+.dropdown__item--danger {
+  color: var(--figma-danger);
+}
+
+.dropdown__item--danger:hover {
+  background-color: rgba(242, 72, 34, 0.1);
+}
+
+.dropdown__divider {
+  height: 1px;
+  background-color: var(--figma-border);
+  margin: 4px 0;
+}
+
+/* Expandable Details Section */
+.box-list-item__details {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: var(--figma-bg-primary);
+  border-radius: 4px;
+  border: 1px solid var(--figma-border);
+}
+
+.box-list-item--selected .box-list-item__details {
+  background-color: rgba(13, 153, 255, 0.05);
+  border-color: rgba(13, 153, 255, 0.3);
+}
+
+.details__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.details__label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--figma-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.details__value {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--figma-text-secondary);
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+}

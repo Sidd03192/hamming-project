@@ -1,0 +1,184 @@
+/* Figma-like Editor Page Styling */
+.editor-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: var(--figma-bg-primary, #1e1e1e);
+}
+
+/* Header - Figma dark style */
+.editor-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: var(--figma-bg-secondary, #2c2c2c);
+  border-bottom: 1px solid var(--figma-border, #444444);
+  flex-shrink: 0;
+}
+
+.back-button {
+  padding: 6px 12px;
+  background-color: var(--figma-bg-tertiary, #383838);
+  border: 1px solid var(--figma-border, #444444);
+  border-radius: 6px;
+  color: var(--figma-text-primary, #ffffff);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.back-button:hover {
+  background-color: var(--figma-bg-hover, #404040);
+  border-color: #555555;
+}
+
+.back-button:active {
+  background-color: #4a4a4a;
+}
+
+.editor-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--figma-text-primary, #ffffff);
+  flex: 1;
+}
+
+.distance-indicator {
+  padding: 6px 12px;
+  background-color: rgba(13, 153, 255, 0.15);
+  border: 1px solid var(--figma-accent, #0d99ff);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--figma-accent, #0d99ff);
+}
+
+.distance-indicator strong {
+  font-weight: 600;
+  color: var(--figma-text-primary, #ffffff);
+}
+
+/* Main content area - Split view */
+.editor-content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Dashboard sidebar (left panel) - Figma properties panel style */
+.editor-sidebar {
+  width: 320px;
+  background-color: var(--figma-bg-primary, #1e1e1e);
+  border-right: 1px solid var(--figma-border, #444444);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Document area (right panel) - Figma canvas style */
+.editor-document-area {
+  background-color: #2c2c2c;
+  background-image:
+    radial-gradient(circle, #3a3a3a 1px, transparent 1px);
+  background-size: 20px 20px;
+  overflow: auto;
+  display: flex;
+  /* Use normal flow/flex handling */
+  justify-content: center; 
+  padding: 4rem; /* keep generous padding for scrolling past edges */
+  position: relative;
+  /* align-items default is stretch, which is fine, or center. 
+     Using center caused the top cutoff when zoomed. 
+     Let's try removing align-items or setting it to flex-start + margin: auto logic via flex 
+  */
+  align-items: flex-start; 
+}
+
+/* Document container with canvas overlay */
+.document-container {
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: visible;
+}
+
+/* Wrapper for document and canvas */
+.document-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.document-wrapper .redaction-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .editor-content {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    padding: 8px 12px;
+  }
+
+  .editor-title {
+    font-size: 12px;
+  }
+
+  .back-button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .distance-indicator {
+    display: none;
+  }
+
+  .editor-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 220px 1fr;
+  }
+
+  .editor-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--figma-border, #444444);
+  }
+
+  .editor-document-area {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .editor-header {
+    flex-wrap: wrap;
+  }
+
+  .editor-title {
+    flex-basis: 100%;
+    margin-top: 8px;
+  }
+
+  .editor-content {
+    grid-template-rows: 180px 1fr;
+  }
+
+  .editor-document-area {
+    padding: 0.5rem;
+  }
+}

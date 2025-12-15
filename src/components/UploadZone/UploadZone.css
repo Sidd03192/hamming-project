@@ -1,0 +1,80 @@
+.upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background-color: var(--figma-bg-secondary, #2c2c2c);
+  border: 2px dashed var(--figma-border, #444444);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-zone:hover {
+  background-color: var(--figma-bg-hover, #333333);
+  border-color: var(--figma-text-secondary, #808080);
+}
+
+.upload-zone.dragging {
+  background-color: rgba(13, 153, 255, 0.05);
+  border-color: var(--figma-accent, #0d99ff);
+}
+
+.upload-content {
+  text-align: center;
+  padding: 2rem;
+  pointer-events: none; /* Let parent capture clicks */
+}
+
+.upload-icon {
+  color: var(--figma-text-secondary, #b3b3b3);
+  margin-bottom: 1rem;
+}
+
+.upload-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.upload-zone h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--figma-text-primary, #ffffff);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.upload-zone p {
+  margin: 0;
+  color: var(--figma-text-secondary, #b3b3b3);
+  font-size: 0.9rem;
+}
+
+.file-types {
+  margin-top: 0.5rem !important;
+  font-size: 0.8rem !important;
+  opacity: 0.7;
+}
+
+.upload-error {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(242, 72, 34, 0.1);
+  border: 1px solid var(--figma-danger, #f24822);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--figma-danger, #f24822);
+  font-size: 0.85rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

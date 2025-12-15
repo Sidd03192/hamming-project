@@ -1,0 +1,141 @@
+/* Figma-like SearchBar Styling */
+.search-bar {
+  width: 100%;
+}
+
+.search-bar__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.search-bar__icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--figma-text-tertiary);
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.search-bar__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 32px 8px 32px;
+  border: 1px solid var(--figma-border);
+  border-radius: 6px;
+  background-color: var(--figma-bg-secondary);
+  color: var(--figma-text-primary);
+  font-size: 12px;
+  transition: all 0.15s ease;
+}
+
+.search-bar__input::placeholder {
+  color: var(--figma-text-tertiary);
+}
+
+.search-bar__input:hover {
+  border-color: var(--figma-bg-hover);
+  background-color: var(--figma-bg-tertiary);
+}
+
+.search-bar__input:focus {
+  outline: none;
+  border-color: var(--figma-accent);
+  background-color: var(--figma-bg-tertiary);
+  box-shadow: 0 0 0 2px rgba(13, 153, 255, 0.15);
+}
+
+/* Override any Input component styling */
+.search-bar__input-wrapper .input,
+.search-bar__input-wrapper input {
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: var(--figma-bg-secondary);
+  color: var(--figma-text-primary);
+  border: 1px solid var(--figma-border);
+  font-size: 12px;
+}
+
+.search-bar__input-wrapper .input:focus,
+.search-bar__input-wrapper input:focus {
+  border-color: var(--figma-accent);
+  box-shadow: 0 0 0 2px rgba(13, 153, 255, 0.15);
+}
+
+/* Remove wrapper's default styling */
+.search-bar__input-wrapper .input-wrapper {
+  margin: 0;
+}
+
+.search-bar__clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--figma-text-tertiary);
+  transition: all 0.15s ease;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.search-bar__clear:hover {
+  color: var(--figma-text-primary);
+  background-color: var(--figma-bg-tertiary);
+}
+
+.search-bar__clear:focus {
+  outline: none;
+  background-color: var(--figma-bg-tertiary);
+}
+
+.search-bar__clear svg {
+  width: 12px;
+  height: 12px;
+}
+
+.search-bar__status {
+  font-size: 11px;
+  color: var(--figma-text-tertiary);
+  margin-top: 6px;
+  padding-left: 10px;
+  font-style: normal;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .search-bar__icon {
+    left: 8px;
+  }
+
+  .search-bar__clear {
+    right: 6px;
+  }
+
+  .search-bar__input,
+  .search-bar__input-wrapper .input,
+  .search-bar__input-wrapper input {
+    padding-left: 28px;
+    padding-right: 28px;
+    font-size: 12px;
+  }
+}

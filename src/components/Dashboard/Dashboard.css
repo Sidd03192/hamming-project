@@ -1,0 +1,121 @@
+/* Figma-like Dashboard Styling */
+
+/* CSS Variables for Figma-like theming */
+:root {
+  --figma-bg-primary: #1e1e1e;
+  --figma-bg-secondary: #2c2c2c;
+  --figma-bg-tertiary: #383838;
+  --figma-bg-hover: #404040;
+  --figma-border: #444444;
+  --figma-text-primary: #ffffff;
+  --figma-text-secondary: #b3b3b3;
+  --figma-text-tertiary: #8c8c8c;
+  --figma-accent: #0d99ff;
+  --figma-accent-hover: #0077cc;
+  --figma-success: #14ae5c;
+  --figma-warning: #ffb800;
+  --figma-danger: #f24822;
+}
+
+/* Dashboard Container */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: var(--figma-bg-primary);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Header Section with Logo Area */
+.dashboard__header {
+  flex-shrink: 0;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--figma-border);
+}
+
+.dashboard__title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--figma-text-tertiary);
+  margin: 0 0 4px 0;
+}
+
+/* Controls Section */
+.dashboard__controls {
+  flex-shrink: 0;
+  padding: 12px 16px;
+  background-color: var(--figma-bg-primary);
+  border-bottom: 1px solid var(--figma-border);
+}
+
+/* Search Section */
+.dashboard__search {
+  flex-shrink: 0;
+  padding: 12px 16px;
+  background-color: var(--figma-bg-primary);
+  border-bottom: 1px solid var(--figma-border);
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Content Section - Takes remaining space */
+.dashboard__content {
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+  min-height: 0;
+  background-color: var(--figma-bg-primary);
+}
+
+/* Section Headers */
+.dashboard__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--figma-border);
+}
+
+.dashboard__section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--figma-text-tertiary);
+  margin: 0;
+}
+
+.dashboard__section-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--figma-text-secondary);
+  background-color: var(--figma-bg-tertiary);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard__controls {
+    padding: 10px 12px;
+  }
+
+  .dashboard__search {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard__controls {
+    padding: 8px 10px;
+  }
+
+  .dashboard__search {
+    padding: 8px 10px;
+  }
+}
